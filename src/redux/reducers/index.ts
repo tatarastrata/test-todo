@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import todosReducer from './todosReducer';
+import todosReducer from './todos-reducer';
 import { IRootState } from '../types';
 
 const rootReducer = combineReducers<IRootState>({

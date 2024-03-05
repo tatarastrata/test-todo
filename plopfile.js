@@ -1,58 +1,42 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 module.exports = function (plop) {
   plop.setGenerator('component', {
-    description: 'Create component',
-    prompts: [
+    'description': 'Create component',
+    'prompts': [
       {
-        type: 'input',
-        name: 'name',
-        message: 'Component name?',
-      },
-      {
-        type: 'list',
-        name: 'dir',
-        message: 'which dir?',
-        choices: [
-          { name: 'atoms', value: 'atoms' },
-          { name: 'molecules', value: 'molecules' },
-          { name: 'organisms', value: 'organisms' },
-          { name: 'templates', value: 'templates' },
-          { name: 'pages', value: 'pages' },
-        ],
+        'type': 'input',
+        'name': 'name',
+        'message': 'Component name?',
       },
     ],
-    actions: [
+    'actions': [
       {
-        type: 'add',
-        path: 'src/components/{{dir}}/{{pascalCase name}}/{{pascalCase name}}.tsx',
-        templateFile: 'templates/Component.tsx.hbs',
+        'type': 'add',
+        'path': 'src/components/{{kebabCase name}}/{{kebabCase name}}.tsx',
+        'templateFile': 'templates/component.tsx.hbs',
       },
       {
-        type: 'add',
-        path: 'src/components/{{dir}}/{{pascalCase name}}/{{pascalCase name}}.module.scss',
-        templateFile: 'templates/Component.module.ts.hbs',
+        'type': 'add',
+        'path': 'src/components/{{kebabCase name}}/index.ts',
+        'templateFile': 'templates/index.ts.hbs',
       },
       {
-        type: 'add',
-        path: 'src/components/{{dir}}/{{pascalCase name}}/index.ts',
-        templateFile: 'templates/index.ts.hbs',
+        'type': 'add',
+        'path': 'src/components/{{kebabCase name}}/{{kebabCase name}}-prop-types.ts',
+        'templateFile': 'templates/component-prop-types.ts.hbs',
       },
       {
-        type: 'add',
-        path: 'src/components/{{dir}}/{{pascalCase name}}/{{pascalCase name}}PropTypes.ts',
-        templateFile: 'templates/ComponentPropTypes.ts.hbs',
+        'type': 'add',
+        'path': 'src/components/index.ts',
+        'skipIfExists': true,
       },
       {
-        type: 'add',
-        path: 'src/components/{{dir}}/index.ts',
-        skipIfExists: true,
-      },
-      {
-        type: 'append',
-        path: 'src/components/{{dir}}/index.ts',
-        separator: '',
-        template: `export { default as {{pascalCase name}} } from './{{pascalCase name}}';\n`,
-        unique: true,
+        'type': 'append',
+        'path': 'src/components/index.ts',
+        'separator': '',
+        'template': 'export { default as {{pascalCase name}} } from \'./{{kebabCase name}}\'\n',
+        'unique': true,
       },
     ],
-  });
-};
+  })
+}

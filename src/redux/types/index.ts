@@ -1,4 +1,4 @@
-import { ITodosState, TTodosActionTypes } from './todosTypes';
+import { ITodosState, TTodosActionTypes } from './todos-types';
 
 export interface IRootState {
   todos: ITodosState;

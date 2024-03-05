@@ -1,28 +1,19 @@
-# react-ts template by meeee
-
-React Typescript app with
+# Test Todo List
 
 - TypeScript (`./tsconfig.json`);
 - Webpack - `./webpack/webpack.config.js` is set up for environments `dev` and `prod` (`prod` is for deployment);
-- ESlint and Prettier (`./eslintrc.js`, `./prettierrc.js`);
+- ESlint and Prettier (`./eslintrc.js`, `./prettierrc.js`) is set with [wemake-frontend-styleguide](https://github.com/wemake-services/wemake-frontend-styleguide) TypeScript and JavaScript configurations;
 - Husky for prevention linting and formatting mistakes to be committed;
 - Babel loader package for transpiling javascript files;
 - React-refresh plugin to avoid browser reload on changes;
 - Plop for creating project templates (`./plopfile.js`, `./templates/*ts.hbs`);
 - `dependabot.yml` file for tracking project dependencies;
-- SCSS (Sass); if it's not needed, consider uninstalling it;
-- Redux setup with sample TodoReducer;
-- error boundary;
-- jest;
+- [ChakraUi style library](https://chakra-ui.com/);
+- Formik for inputs and their validation;
+- Redux setup;
+- simple error boundary;
 
-##Get Started
-init package.json file in the root directory (`--y` takes default values)
-
-```
-npm init --y
-```
-
-other available scripts:
+ available scripts:
 
 ```
 "scripts": {
@@ -33,31 +24,3 @@ other available scripts:
     "build": "webpack --config ./webpack/webpack.common.js --mode production"
   },
 ```
-
-Don't forget to install ESlint, Prettier extensions in VSCode.
-
-## How to generate components:
-
-run the command
-
-```
-npm run plop [ComponentName]
-```
-
-and answer the questions on component dir.
-
-## How to deploy to GitHub Pages:
-
-1. checkout to the new branch, i.e., 'gh-pages'
-
-2. run the command
-
-```
-npm run build
-```
-
-3. place the `build` dir as a root.
-4. additional steps that may be needed in `index.html`:
-
-- add `<meta http-equiv="Permissions-Policy" content="interest-cohort=()">`
-- change any `src="/dir..."` to `src="./dir..."`
